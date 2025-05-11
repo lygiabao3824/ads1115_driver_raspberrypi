@@ -1,0 +1,16 @@
+CÁC BƯỚC CÀI DRIVER:
+
+1. Biên dịch DRIVER
+  make
+  
+2. Cài module driver
+  sudo insmod ads1115_driver.ko
+  
+3. Tạo thiết bị I2C nếu không dùng overlay
+  echo ads1115 0x48 | sudo tee /sys/bus/i2c/devices/i2c-1/new_device
+  
+4. Biên dịch chương trình mẫu
+  gcc test_ads1115.c -o test_ads1115
+  
+5. Chạy chương trình mẫu
+  sudo ./test_ads1115
